@@ -3,8 +3,13 @@
 
 # MSVC | Microservices with Python
 
-"FAAS" stands for Function as a Service, which is a cloud computing model that allows developers to run individual functions or pieces of code in response to events or triggers without having to manage servers or infrastructure. This is often referred to as "serverless computing" because developers can focus solely on writing code and deploying functions, leaving the infrastructure management to the cloud provider
 
-*since I was dealing already with Python, this was the perfect time to prove if I got the concepts right at the beginning*
+Microservices architecture revolutionizes software development by breaking down applications into small, autonomous services that communicate via APIs. Python, renowned for its simplicity and versatility, has become a cornerstone in this paradigm shift, offering developers a powerful toolkit for crafting scalable and resilient microservices.
 
-- [Exercism](https://exercism.org/tracks/python/concepts) - Great place to learn the basic concept with very interessting tasks
+In the microservices realm, Python's agility shines through. Its rich ecosystem, comprising frameworks like Flask and Django, empowers developers to swiftly build RESTful APIs and web services. Meanwhile, asynchronous libraries such as asyncio bolster performance by enabling non-blocking I/O operations, essential for handling concurrent requests in distributed systems.
+
+Python's compatibility with containerization technologies like Docker further amplifies its appeal. By encapsulating Python microservices and their dependencies into portable containers, developers ensure consistency across deployment environments, be it on-premises or in the cloud.
+
+Communication is key in microservices, and Python excels here too. Whether via HTTP/REST or messaging protocols like RabbitMQ, Python facilitates seamless interaction between services, promoting loose coupling and scalability.
+
+In essence, microservices with Python epitomize agility and innovation. By leveraging Python's simplicity and robustness, developers can architect distributed systems that adapt and scale effortlessly, ushering in a new era of software development excellence.
