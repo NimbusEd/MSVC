@@ -1,0 +1,47 @@
+version: '3.9'
+
+services:
+
+  persistent-flask:
+    container_name: blueprints
+    build:
+      context: .
+    ports:
+      - 5010:5000
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_URI=mysql+mysqlconnector://root:root@msvc-db:3306/msvc
+      - CHOKIDAR_USEPOLLING=true
+      - FLASK_DEBUG=1
+      - FLASK_HOST=0.0.0.0
+      - FLASK_PORT=5000
+      - FLASK_APP=app
+    depends_on:
+      msvc-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://msvc-db:3306"]
+      interval: 10s
+      timeout: 60s
+      retries: 5
+
+  msvc-db:
+    image: mysql:latest
+    container_name: msvc-db-blueprint
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: msvc
+    ports:
+      - 6004:3306
+    volumes:
+    - msvc-db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 10s
+      timeout: 60s
+      retries: 5
+
+volumes:
+  msvc-db:

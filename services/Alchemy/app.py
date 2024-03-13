@@ -10,6 +10,7 @@ app = APIFlask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')\
         or 'sqlite:///' + os.path.join(basedir, 'app.db')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Create object
 db = SQLAlchemy(app)
@@ -45,7 +46,7 @@ class StudentModel(db.Model):
 
 class StudentIn(Schema):
     name = String(required=True, validate=Length(0, 32))
-    level = String(required=True, validate=OneOf(['HF', 'PE', 'AP', 'ICT']))
+    level = String(required=True, validate=OneOf(['Beginner', 'Intermediate', 'Advanced', 'Expert']))
 
 
 class StudentOut(Schema):

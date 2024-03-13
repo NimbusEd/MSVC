@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Your Game Title</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Welcome to Your Game</h1>
+        <div id="player-info">
+            <h2>Player Information</h2>
+            <p>Username: <span id="username"></span></p>
+            <p>Resources: <span id="resources"></span></p>
+        </div>
+        <div id="buildings">
+            <h2>Buildings</h2>
+            <ul id="building-list"></ul>
+            <button onclick="upgradeBuilding()">Upgrade Building</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
