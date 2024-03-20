@@ -9,13 +9,13 @@ def create_test_data():
     db.create_all()
 
     # Beispieldaten
-    students = [
-        {'name': 'Freda Kids', 'level': 'HF'},
-        {'name': 'Sam Sung', 'level': 'HF'},
-        {'name': 'Chris P. Bacon', 'level': 'AP'},
-        {'name': 'Saad Maan', 'level': 'PE'}
+    students_data = [
+        {'name': 'Alice Wonderland', 'level': 'Beginner'},
+        {'name': 'Bob Marley', 'level': 'Beginner'},
+        {'name': 'Charlie Chaplin', 'level': 'Advanced'},
+        {'name': 'Eva Green', 'level': 'Expert'}
     ]
-    for student_data in students:
+    for student_data in students_data:
         student = Student(**student_data)
         db.session.add(student)
 
@@ -24,15 +24,15 @@ def create_test_data():
     db.session.add(student_ref)
 
     courses = [
-        {'title': 'M231 Security'},
-        {'title': 'M254 BPMN'}
+        {'title': 'CS101'},
+        {'title': 'PHYS202'}
     ]
     for course_data in courses:
         course = Course(**course_data)
         db.session.add(course)
 
     # create an additional course and safe ref for later
-    course_ref = Course(title='M347 Kubernetes')
+    course_ref = Course(title='LPEC24')
     db.session.add(course_ref)
     student_ref.courses.append(course_ref)
 

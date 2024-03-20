@@ -4,11 +4,7 @@ from app.models.student import Student, StudentIn, StudentOut
 from app.models.course import Course, CourseOut
 from app.models.registration import RegistrationCourseIn
 
-
-
-####
-## view functions
-####    
+  
 @bp.get('/<int:student_id>')
 @bp.output(StudentOut)
 def get_student(student_id):
